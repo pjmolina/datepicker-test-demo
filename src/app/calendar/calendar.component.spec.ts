@@ -4,8 +4,16 @@ import { CalendarComponent } from './calendar.component';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { CalendarPipe } from './calendar.pipe';
-import { MockCalendarService } from 'src/testing/mocks';
 import { CalendarService } from './calendar.service';
+
+@Component({
+  selector: 'app-host-cmp',
+  template: '<app-calendar [date]="date"></app-calendar>'
+})
+class HostComponent {
+  date = '2019/8';
+}
+
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -68,10 +76,3 @@ describe('CalendarComponent', () => {
   });
 });
 
-@Component({
-  selector: 'app-host-cmp',
-  template: '<app-calendar [date]="date"></app-calendar>'
-})
-class HostComponent {
-  date = '2019/8';
-}
